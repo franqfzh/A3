@@ -172,11 +172,43 @@ public class BSTImpl implements BST {
 
     @Override
     public boolean contains(String s) {
-        return false;
+        return contains_r(this.root, s);
+    }
+
+    private boolean contains_r(Node c, String s) {
+        int cflag = s.compareTo(c.getValue());
+
+        if (cflag<0 && c.getLeft()!=null) {
+            return contains_r(c.getLeft(), s);
+        }
+
+        if (cflag>0 && c.getRight()!=null) {
+            return contains_r(c.getRight(), s);
+        }
+
+        return cflag == 0;
+
     }
 
     @Override
     public Node get(String s) {
+        return get_r(root, s);
+    }
+
+    private Node get_r(Node c, String s) {
+        int cflag = s.compareTo(c.getValue());
+
+        if (cflag<0 && c.getLeft()!=null) {
+            return get_r(c.getLeft(), s);
+        }
+
+        if (cflag>0 && c.getRight()!=null) {
+            return get_r(c.getRight(), s);
+        }
+
+        if(cflag==0) {
+            return c;
+        }
         return null;
     }
 

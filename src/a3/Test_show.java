@@ -13,7 +13,7 @@ public class Test_show {
         bst.insert("z");
 
 
-        System.out.println(bst.findMax());
+        System.out.println(bst.get("z"));
 
     }
 
