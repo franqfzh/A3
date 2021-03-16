@@ -54,7 +54,6 @@ public class BSTImpl implements BST {
     private String insert_r(String k, Node c) {
         Node add = new NodeImpl(k);
         if (c==null){
-            c=add;
             return k;
         }
 
