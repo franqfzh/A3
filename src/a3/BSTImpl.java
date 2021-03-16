@@ -125,8 +125,23 @@ public class BSTImpl implements BST {
 
     @Override
     public boolean isFull() {
+        return isFull_r(this.root);
+    }
+
+    private boolean isFull_r(Node c){
+        if(c == null){
+            return true;
+        }
+        if(c.getLeft() == null && c.getRight() == null){
+            return true;
+        }
+        if ((c.getLeft()!=null)&&(c.getRight()!=null)){
+            return (isFull_r(c.getLeft()) && isFull_r(c.getRight()));
+        }
         return false;
     }
+
+
 
     @Override
     public String findMin() {
