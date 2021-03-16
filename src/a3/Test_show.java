@@ -11,9 +11,9 @@ public class Test_show {
         bst.insert("b");
         bst.insert("g");
         bst.insert("z");
-        bst.insert("a");
 
-        bst.show();
+
+        System.out.println(bst.findMax());
 
     }
 

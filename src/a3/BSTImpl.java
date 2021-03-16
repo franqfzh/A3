@@ -132,11 +132,11 @@ public class BSTImpl implements BST {
         if(c == null){
             return true;
         }
-        if(c.getLeft() == null && c.getRight() == null){
+        if(c.getLeft()==null && c.getRight()==null){
             return true;
         }
         if ((c.getLeft()!=null)&&(c.getRight()!=null)){
-            return (isFull_r(c.getLeft()) && isFull_r(c.getRight()));
+            return (isFull_r(c.getLeft())&&isFull_r(c.getRight()));
         }
         return false;
     }
@@ -145,12 +145,29 @@ public class BSTImpl implements BST {
 
     @Override
     public String findMin() {
-        return null;
+        return findMin_r(this.root);
     }
+
+    private String findMin_r(Node c){
+        if (c.getLeft() != null){
+            return findMin_r(c.getLeft());
+        }
+
+        return c.getValue();
+
+    }
+
 
     @Override
     public String findMax() {
-        return null;
+        return findMax_r(this.root);
+    }
+
+    private String findMax_r(Node c){
+        if (c.getRight() != null){
+            return findMax_r(c.getRight());
+        }
+        return c.getValue();
     }
 
     @Override
