@@ -45,8 +45,10 @@ public class BSTImpl implements BST {
 
     @Override
     public String insert(String value) {
-        if(root==null){
-            root=new NodeImpl(value);
+        if(root==null) {
+            root = new NodeImpl(value);
+            size++;
+            return value;
         }
         size++;
         return insert_r(value, this.root);
