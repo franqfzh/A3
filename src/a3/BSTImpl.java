@@ -44,7 +44,40 @@ public class BSTImpl implements BST {
     }
 
     @Override
-    public String insert(String value) { return null; }
+    public String insert(String value) {
+        if(root==null){
+            root=new NodeImpl(value);
+        }
+        size++;
+        return insert_r(value, this.root);
+    }
+    private String insert_r(String k, Node c) {
+        Node add = new NodeImpl(k);
+        if (c==null){
+            c=add;
+            return k;
+        }
+
+        int cflag = k.compareTo(c.getValue());
+
+        if (cflag<0) {
+            if (c.getLeft() != null) {
+                insert_r(k, c.getLeft());
+            }else{
+                c.setLeft(add);
+            }
+        } else {
+            if (c.getRight()!=null) {
+                insert_r(k, c.getRight());
+            }else{
+                c.setRight(add);
+            }
+        }
+
+        return k;
+
+
+    }
 
     // remove implementation given to you, do NOT change
     @Override
@@ -117,5 +150,29 @@ public class BSTImpl implements BST {
     @Override
     public int size() {
         return this.size;
+    }
+
+    public void show() {
+        int off=4;
+        int lev=0;
+        for (int k=0; k<10; k++) {
+            System.out.print("+");
+            for (int kk=0; kk<off-1; kk++) { System.out.print("-");}
+        }
+        System.out.println("+");
+        show_r(this.root,lev,off);
+        for (int k=0; k<10; k++){
+            System.out.print("+");
+            for (int kk=0; kk<off-1; kk++) {System.out.print("-"); }
+        }
+        System.out.println("+");
+    }
+
+    private void show_r(Node n, int lev, int off) {
+        if (n==null) return;
+        show_r(n.getRight(), lev+off, off);
+        for (int b=0; b<lev; b++) { System.out.print(" "); }
+        System.out.println(n.getValue());
+        show_r(n.getLeft(), lev+off, off);
     }
 }
