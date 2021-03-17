@@ -16,7 +16,7 @@ public class Test_show {
         bst.insert("j");
         bst.insert("k");
         bst.insert("l");
-        System.out.println(bst.get("l"));
+        System.out.println(bst.get("q"));
 
     }
 

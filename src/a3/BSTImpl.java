@@ -196,10 +196,11 @@ public class BSTImpl implements BST {
     }
 
     private Node get_r(Node c, String s) {
-        int cflag = s.compareTo(c.getValue());
-        if (c.getValue()==null){
+        if (c==null){
             return null;
         }
+        int cflag = s.compareTo(c.getValue());
+
         if (cflag==0) {
             return c;
         }
