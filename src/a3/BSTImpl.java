@@ -55,7 +55,7 @@ public class BSTImpl implements BST {
     }
     private String insert_r(String k, Node c) {
         Node add = new NodeImpl(k);
-        if (c==null){
+        if (c==null) {
             return k;
         }
 
@@ -64,13 +64,16 @@ public class BSTImpl implements BST {
         if (cflag<0) {
             if (c.getLeft() != null) {
                 insert_r(k, c.getLeft());
-            }else{
+            }
+            else {
                 c.setLeft(add);
             }
-        } else {
+        }
+        else {
             if (c.getRight()!=null) {
                 insert_r(k, c.getRight());
-            }else{
+            }
+            else {
                 c.setRight(add);
             }
         }
@@ -135,8 +138,8 @@ public class BSTImpl implements BST {
         if(c.getLeft()==null && c.getRight()==null){
             return true;
         }
-        if ((c.getLeft()!=null)&&(c.getRight()!=null)){
-            return (isFull_r(c.getLeft())&&isFull_r(c.getRight()));
+        if ((c.getLeft()!=null) && (c.getRight()!=null)){
+            return (isFull_r(c.getLeft()) && isFull_r(c.getRight()));
         }
         return false;
     }
